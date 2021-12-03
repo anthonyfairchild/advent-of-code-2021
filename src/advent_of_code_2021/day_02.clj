@@ -2,7 +2,7 @@
   (:require [clojure.java.io :refer [resource]]
             [clojure.string :refer [split]]))
 
-(def input (-> "day_02_input.txt"
+(def input (-> "day_02.txt"
                resource
                slurp
                (split #"\n")
@@ -15,7 +15,7 @@
                  ['down 8]
                  ['forward 2]])
 
-(defn problem-1
+(defn part-1
   [input]
   (let [[x y] (reduce (fn [[x y] [d n]]
                         (case d
@@ -25,7 +25,7 @@
                       [0 0] input)]
     (* x y)))
 
-(defn problem-2
+(defn part-2
   [input]
   (let [[x y] (reduce (fn [[x y a] [d n]]
                         (case d
@@ -36,5 +36,5 @@
     (* x y)))
 
 #_input
-#_(problem-1 input)
-#_(problem-2 input)
+#_(part-1 input)
+#_(part-2 input)
