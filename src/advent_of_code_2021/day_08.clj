@@ -1,4 +1,4 @@
-(ns advent-of-code-2021.day-07
+(ns advent-of-code-2021.day-08
   (:require [clojure.java.io :refer [resource]]
             [clojure.string :refer [split join]]
             [clojure.math.combinatorics :refer [permutations]]))
