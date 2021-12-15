@@ -17,9 +17,9 @@
 
 (defn all-positions [input]
   (->> input first count range
-       (map (fn [col] (map #(vector % col)
+       (mapcat (fn [col] (map #(vector % col)
                            (range (count input)))))
-       (apply concat)))
+       (into [])))
 
 (defn low-points [input]
   (->> input
