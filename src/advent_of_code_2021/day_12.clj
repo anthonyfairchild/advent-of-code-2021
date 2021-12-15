@@ -19,18 +19,18 @@
 #_test-input-2
 
 (defn part-1 [input]
-  (loop [v []
+  (loop [v #{}
          s ["start"]
-         paths []]
+         c 0]
     (if (empty? s)
-      paths
+      c
       (let [k (last s)
             s (pop s)]
         (cond
-          (= k "end")                (recur v s (conj paths (conj v "end")))
-          (= k (upper-case k))       (recur (conj v k) (vec (concat s (get input k))) paths)
-          (not ((set v) k))          (recur (conj v k) (vec (concat s (get input k))) paths)
-          :else                      (recur v s paths))))))
+          (= k "end")                (recur v s (inc c))
+          (= k (upper-case k))       (recur v (vec (concat s (get input k))) c)
+          (not (v k))                (recur (conj v k) (vec (concat s (get input k))) c)
+          :else                      (recur v s c))))))
 
 
 #_(part-1 test-input-1)
